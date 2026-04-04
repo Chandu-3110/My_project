@@ -1,0 +1,17 @@
+<h2>Register</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    Name: <input type="text" name="name"><br>
+    Email: <input type="email" name="email"><br>
+    Password: <input type="password" name="password"><br>
+
+    Role:
+    <select name="role">
+        <option value="student">Student</option>
+        <option value="college">College</option>
+        <option value="company">Company</option>
+    </select><br>
+
+    <button type="submit">Register</button>
+</form>
