@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <img src="{% static 'images/register.png' %}">
+        <p>Start your journey with us</p>
+    </div>
+
+    <div class="right">
+        <div class="box">
+
+            <h2>Create Account</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <input type="text" name="name" placeholder="Full Name">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+
+                <select name="role">
+                    <option value="student">Student</option>
+                    <option value="college">College</option>
+                    <option value="company">Company</option>
+                </select>
+
+                <button type="submit">Register</button>
+            </form>
+
+            <p>Already have account? <a href="/login/">Login</a></p>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

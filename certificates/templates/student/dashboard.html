@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background-color: red;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Logout -->
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button class="logout-btn">🚪 Logout</button>
+</form>
+
+<div class="container">
+
+    <div class="left">
+        <img src="{% static 'images/student.png' %}">
+        <p>Your Certificates</p>
+    </div>
+
+    <div class="right">
+        <div class="box">
+
+            <h2>Student Dashboard</h2>
+
+            {% if certificates %}
+                <table>
+                    <tr>
+                        <th>Course</th>
+                        <th>Grade</th>
+                        <th>Issued By</th>
+                    </tr>
+
+                    {% for cert in certificates %}
+                    <tr>
+                        <td>{{ cert.course }}</td>
+                        <td>{{ cert.grade }}</td>
+                        <td>{{ cert.issued_by }}</td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            {% else %}
+                <p>No certificates found</p>
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

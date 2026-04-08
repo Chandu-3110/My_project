@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <img src="{% static 'images/login.png' %}">
+        <p>Welcome Back!</p>
+    </div>
+
+    <div class="right">
+        <div class="box">
+
+            <h2>Login</h2>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p>Don't have account? <a href="/register/">Register</a></p>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

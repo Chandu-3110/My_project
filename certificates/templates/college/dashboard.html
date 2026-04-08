@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <style>
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background-color: red;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ✅ Logout -->
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button class="logout-btn">🚪 Logout</button>
+</form>
+
+<div class="container">
+
+    <div class="left">
+        <img src="{% static 'images/college.png' %}">
+        <p>Manage Certificates</p>
+    </div>
+
+    <div class="right">
+        <div class="box">
+
+            <h2>College Dashboard</h2>
+
+            <!-- ✅ Updated URL -->
+            <a href="{% url 'add_certificate' %}">
+                <button>Add Certificate</button>
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
