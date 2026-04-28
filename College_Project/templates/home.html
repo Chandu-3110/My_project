@@ -1,0 +1,128 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
+        <a href="{% url 'index' %}" class="navbar-brand p-0">
+            <h1 class="m-0 text-primary"></i>Homomorphic </h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                {% if login == 'user' %}
+                <a href="{% url 'home' %}" class="nav-item nav-link ">Home</a>
+                <a href="{% url 'uploadfile' %}" class="nav-item nav-link">Uplaod Files</a>
+                <a href="{% url 'viewfiles' %}" class="nav-item nav-link">View Files</a>
+                <a href="{% url 'filerequests' %}" class="nav-item nav-link">Acces Control</a>
+                <a href="{% url 'datastatus' %}" class="nav-item nav-link">Data Status</a>
+                <a href="{% url 'viewresponses' %}" class="nav-item nav-link"> View Response</a>
+                {% else %}
+                <a href="{% url 'home' %}" class="nav-item nav-link ">Home</a>
+                <a href="{% url 'viewallfiles' %}" class="nav-item nav-link">View Files</a>
+                <a href="{% url 'viewrequests' %}" class="nav-item nav-link">Key Generation</a>
+                <a href="{% url 'filetransactions' %}" class="nav-item nav-link">File Transactions</a>
+                {% endif %}
+                <a href="{% url 'logout' %}" class="nav-item nav-link">Logout</a>
+            </div>
+           
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+{% block title %}
+
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <div class="input-group" style="max-width: 600px;">
+                        <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
+                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Full Screen Search End -->
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="/static/img/i1.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            {% comment %} <h5 class="text-white text-uppercase mb-3 animated slideInDown">Keep Your Teeth Healthy</h5> {% endcomment %}
+                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Concise and Efficient Multi-Identity Fully Homomorphic Encryption Scheme</h1>
+                            <a href="{% url 'about' %}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Learn More</a>
+                            {% comment %} <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact Us</a> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="/static/img/i2.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            {% comment %} <h5 class="text-white text-uppercase mb-3 animated slideInDown">Keep Your Teeth Healthy</h5> {% endcomment %}
+                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Concise and Efficient Multi-Identity Fully Homomorphic Encryption Scheme</h1>
+                            <a href="{% url 'about' %}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Learn More</a>
+                            {% comment %} <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact Us</a> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="section-title mb-4">
+                        <h5 class="position-relative d-inline-block text-primary text-uppercase">About </h5>
+                        <h1 class="display-5 mb-0">Concise and Efficient Multi-Identity Fully Homomorphic Encryption Scheme</h1>
+                    </div>
+                    {% comment %} <h4 class="text-body fst-italic mb-4">Diam dolor diam ipsum sit. Clita erat ipsum et lorem stet no lorem sit clita duo justo magna dolore</h4> {% endcomment %}
+                    <p class="mb-4">
+                        A concise and efficient multi-identity fully homomorphic encryption (FHE) scheme enables secure computation over encrypted data, supporting multiple identities without compromising performance. This scheme facilitates encrypted operations across various users, ensuring data privacy and security while maintaining computational efficiency. The multi-identity aspect allows different users to perform encrypted computations using their unique keys, promoting versatility and robustness in applications requiring collaborative secure processing.</p>
+                    <div class="row g-3">
+                        
+                    </div>
+                    <a href="appointment.html" class="btn btn-primary py-3 px-5 mt-4 wow zoomIn" data-wow-delay="0.6s">Learn More</a>
+                </div>
+                <div class="col-lg-5" style="min-height: 500px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="/static/img/i3.jpg" style="object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    {% endblock  %}
+    {% endblock  %}
+    
